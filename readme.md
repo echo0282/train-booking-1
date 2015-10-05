@@ -18,3 +18,7 @@ $ grunt server
 
 Then open http://localhost:8000
 Then read the instructions
+
+/get = bookings
+/delete/:id = delete
+/post = put
