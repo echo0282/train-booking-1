@@ -2,6 +2,12 @@
 
 namespace BBC\TrainBooking;
 
+/**
+ * This is a booking class which keeps data about one booking
+ *
+ * Class Booking
+ * @package BBC\TrainBooking
+ */
 class Booking implements BookingInterface
 {
     private $id;

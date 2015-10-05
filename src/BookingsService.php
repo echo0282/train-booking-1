@@ -2,18 +2,30 @@
 
 namespace BBC\TrainBooking;
 
+/**
+ * Bookings Service class which deals with handling the endpoints
+ *
+ * Class BookingsService
+ * @package BBC\TrainBooking
+ */
 class BookingsService
 {
-    private $bookingJSON;
+    protected $bookingJSON;
 
     /* @var Booking[]   $bookings */
-    private $bookings = [];
+    protected $bookings = [];
 
     public function __construct()
     {
         $this->read();
     }
 
+    /**
+     * Get the Bookings
+     *
+     * @codeCoverageIgnore
+     * @return Booking[]
+     */
     public function get()
     {
         if (empty($this->bookings)) {
@@ -27,6 +39,12 @@ class BookingsService
         return $this->bookings;
     }
 
+    /**
+     * Put a booking into the data store
+     *
+     * @param $seatNumbers
+     * @codeCoverageIgnore
+     */
     public function put($seatNumbers)
     {
         $bookingJson = (object) array(
@@ -39,9 +57,15 @@ class BookingsService
         $this->bookings[] = $booking;
 
         $this->write();
-
     }
 
+    /**
+     * Delete a booking from the data store
+     *
+     * @param $bookingID
+     * @return bool
+     * @codeCoverageIgnore
+     */
     public function delete($bookingID)
     {
         if ($this->get()) {
@@ -58,6 +82,11 @@ class BookingsService
         return false;
     }
 
+    /**
+     * Transform a booking into a string
+     *
+     * @return string
+     */
     public function transform()
     {
         $allBookings = [];
@@ -74,6 +103,12 @@ class BookingsService
         ));
     }
 
+    /**
+     * Verify that the data is correct
+     *
+     * @param $data
+     * @return bool
+     */
     public function verify($data)
     {
         if (is_array($data)) {
@@ -83,6 +118,12 @@ class BookingsService
         return false;
     }
 
+    /**
+     * Sanitise the data before we store it
+     *
+     * @param $data
+     * @return mixed
+     */
     public function sanitise($data)
     {
         foreach ($data as $bookingID) {
@@ -92,6 +133,11 @@ class BookingsService
         return $data;
     }
 
+    /**
+     * Read the data from the file
+     *
+     * @codeCoverageIgnore
+     */
     protected function read()
     {
         $bookingsJSONDIR = __DIR__."/../app/data/bookings.json";
@@ -102,6 +148,11 @@ class BookingsService
         }
     }
 
+    /**
+     * Write the data to the file
+     *
+     * @codeCoverageIgnore
+     */
     protected function write()
     {
         $bookingsJSONDIR = __DIR__."/../app/data/bookings.json";

@@ -1,5 +1,11 @@
 define(["jquery", "handlebars", "Seat"], function($, Handlebars, Seat) {
 
+    /**
+     * This is the module which configures the seating plan
+     * @author Laurence Hammond
+     * @param options
+     * @constructor
+     */
     function SeatingPlan(options) {
         this.hb = Handlebars;
         this.options = {
@@ -22,6 +28,9 @@ define(["jquery", "handlebars", "Seat"], function($, Handlebars, Seat) {
         this.createSeatingMap();
     }
 
+    /**
+     * Init function
+     */
     SeatingPlan.prototype.init = function() {
         this.seats = {};
         var counter = 1;
@@ -49,6 +58,9 @@ define(["jquery", "handlebars", "Seat"], function($, Handlebars, Seat) {
         }
     };
 
+    /**
+     * Create the seating map
+     */
     SeatingPlan.prototype.createSeatingMap = function() {
         var _this = this,
             tb = document.querySelector(".train-booking"),

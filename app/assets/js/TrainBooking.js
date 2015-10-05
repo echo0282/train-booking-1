@@ -2,6 +2,7 @@ define(["jquery", "SeatingPlan", "AjaxHandler"], function($, SeatingPlan, Handle
 
     /**
      * Entry point into the JS modules
+     * @author Laurence Hammond
      * @param options
      * @constructor
      */

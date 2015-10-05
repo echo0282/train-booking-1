@@ -5,6 +5,12 @@ namespace BBC\TrainBooking;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * This is the entry point and will control the actions
+ *
+ * Class TrainBooking
+ * @package BBC\TrainBooking
+ */
 class TrainBooking
 {
     private $app;
@@ -14,6 +20,11 @@ class TrainBooking
         $this->app = $app;
     }
 
+    /**
+     * Controls the index action
+     *
+     * @return string
+     */
     public function indexAction()
     {
         return $this->app['twig']->render(
@@ -21,6 +32,11 @@ class TrainBooking
         );
     }
 
+    /**
+     * Controls the get action
+     *
+     * @return Response
+     */
     public function getAction()
     {
         $this->app['bookings.service']->get();
@@ -31,6 +47,12 @@ class TrainBooking
         return $response;
     }
 
+    /**
+     * Controls the put action
+     *
+     * @param $data
+     * @return JsonResponse
+     */
     public function putAction($data)
     {
         if ($this->app['bookings.service']->verify($data)) {
@@ -43,19 +65,23 @@ class TrainBooking
         return new JsonResponse(array("fail"), 500);
     }
 
-    public function deleteAction($data)
+    /**
+     * Controls the delete action
+     *
+     * @param array $data
+     * @return string
+     */
+    public function deleteAction($data = [])
     {
-        if ($data) {
-            $res = $this->app['bookings.service']->delete($data);
+        $res = $this->app['bookings.service']->delete($data);
 
-            if ($res) {
-                return $this->app['twig']->render(
-                    'index.twig',
-                    array(
-                        'notice' => "Deleted ID $data successfully"
-                    )
-                );
-            }
+        if ($res) {
+            return $this->app['twig']->render(
+                'index.twig',
+                array(
+                    'notice' => "Deleted ID $data successfully"
+                )
+            );
         }
 
         return $this->app['twig']->render(
@@ -66,6 +92,11 @@ class TrainBooking
         );
     }
 
+    /**
+     * Controls the config action
+     *
+     * @return JsonResponse
+     */
     public function configAction()
     {
         // If I had more time, maybe put this to a config file
