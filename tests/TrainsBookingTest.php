@@ -3,7 +3,6 @@
 namespace BBC\TrainBooking\Tests;
 
 use Silex\Provider\TwigServiceProvider;
-use BBC\TrainBooking\Tests\Mocks\BookingsServiceMock;
 use BBC\TrainBooking\TrainBooking;
 use PHPUnit_Framework_TestCase;
 
