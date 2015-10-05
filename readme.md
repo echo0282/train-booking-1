@@ -11,6 +11,8 @@ https://powerful-island-3158.herokuapp.com/
 $ git clone this repo
 $ npm install
 $ grunt
+$ composer install
+$ ./vendor/bin/phpunit --coverage-html report (then open report)
 $ grunt server
 ```
 
