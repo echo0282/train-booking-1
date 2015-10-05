@@ -24,7 +24,7 @@
     }
   },
   "scripts": {
-    "post-update-install": [
+    "post-install-cmd": [
       "./vendor/bin/phpunit --coverage-html report"
     ]
   }
