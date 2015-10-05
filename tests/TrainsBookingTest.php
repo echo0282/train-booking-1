@@ -13,7 +13,7 @@ class TrainsBookingTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->app = new \Silex\Application();
-        $this->app['bookings.service'] = new BookingsServiceMock();
+        $this->app['bookings.service'] = new Mocks\BookingsServiceMock();
 
         $this->app->register(new TwigServiceProvider(), [
             'twig.path' => __DIR__.'/../views'

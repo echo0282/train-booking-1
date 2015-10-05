@@ -23,10 +23,5 @@
     "psr-4": {
       "BBC\\TrainBooking\\Tests\\": "tests"
     }
-  },
-  "scripts": {
-    "post-install-cmd": [
-      "./vendor/bin/phpunit --coverage-html report"
-    ]
   }
 }
