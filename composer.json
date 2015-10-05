@@ -22,10 +22,5 @@
     "psr-4": {
       "BBC\\TrainBooking\\Tests\\": "tests"
     }
-  },
-  "scripts": {
-    "compile": [
-      "grunt ci"
-    ]
   }
 }

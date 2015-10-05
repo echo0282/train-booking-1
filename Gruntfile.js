@@ -44,14 +44,6 @@ module.exports = function ( grunt ) {
                     dest: "<%=outputPath%>/css",
                     ext: ".css"
                 } ]
-            },
-            dist: {
-                options: {
-                    style: "compressed"
-                },
-                files: {
-                    "<%=staticPath%>/css/*.css": "<%=outputPath%>/sass/*.scss"
-                }
             }
         },
         requirejs: {
@@ -119,6 +111,5 @@ module.exports = function ( grunt ) {
 
     grunt.registerTask( "server", [ "shell:server" ] );
     grunt.registerTask( "default", [ "sass:dev", "jshint", "requirejs:dev", "copy:require", "copy:bootstrap"] );
-    grunt.registerTask( "ci", [ "sass:dist", "jshint", "requirejs:dist", "copy:require", "copy:bootstrap"] );
 
 };
