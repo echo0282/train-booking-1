@@ -1,0 +1,19 @@
+{% raw %}
+    <script class="train-booking__seats-display" type="text/x-handlebars-template">
+        <div class="col">
+            {{#each this}}
+                {{#if this.isStartOfRow }}
+                    <div class="train-booking_row">
+                {{/if}}
+                    <button class="seat {{#if this.isActive }}active{{else}}inactive{{/if}} {{#if this.isVacant }}vacant{{else}}occupied{{/if}} {{ this.getPosition }}"
+                         data-seat-id="{{ this.getID }}" data-seat-active="{{ this.isActive }}"
+                         data-seat-vacant="{{ this.isVacant }}">
+                        {{ this.getID }}
+                    </button>
+                {{#if this.isEndOfRow }}
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
+    </script>
+{% endraw %}

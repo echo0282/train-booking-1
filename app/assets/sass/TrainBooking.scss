@@ -1,0 +1,38 @@
+.row {
+  padding: 20px;
+}
+
+.col {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 30px;
+  width: auto;
+}
+
+.notice {
+  color: red;
+}
+
+.seat {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  font-size: 10px;
+  color: white;
+}
+
+.vacant {
+  background: green;
+}
+
+.occupied {
+  background: red;
+}
+
+.inactive {
+  background: black;
+}
+
+.selected {
+  background: gray;
+}

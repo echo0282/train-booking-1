@@ -1,0 +1,31 @@
+{
+  "name": "Train Booking system",
+  "description": "Train booking system",
+  "require": {
+    "php": ">=5.4",
+    "silex/silex": "~1.3",
+    "silex/web-profiler": "~1.0",
+    "twig/twig": "~1.18"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.1",
+    "squizlabs/php_codesniffer": "~1.5.3",
+    "symfony/browser-kit": ">=2.3,<2.4-dev",
+    "symfony/css-selector": ">=2.3,<2.4-dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "BBC\\TrainBooking\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BBC\\TrainBooking\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "compile": [
+      "grunt ci"
+    ]
+  }
+}

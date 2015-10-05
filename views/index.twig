@@ -1,0 +1,31 @@
+{% extends 'base.twig' %}
+
+{% block head %}{% endblock %}
+
+{% block body %}
+    <p>Please select your seats for this booking.</p>
+    <p>Please note you can only book between 1 and 5 seats.</p>
+    <p>To delete a certain booking, get /delete?id=:id</p>
+    <div class="row">
+        <div class="train-booking">
+            <h2>Front of train</h2>
+        </div>
+        <button class="train-booking_submit" type="submit">Book tickets</button>
+    </div>
+{% endblock %}
+
+{% block bodyLast %}
+    <script type="text/javascript">
+        require({
+            "paths": {
+                "TrainBooking": '/assets/js/TrainBooking'
+            }
+        });
+        require(['TrainBooking'], function(TrainBooking) {
+            var options = {};
+            var tb = new TrainBooking(options);
+        });
+    </script>
+    {% include "index.hbs.twig" %}
+{% endblock %}
+

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="assets/js/require.js"></script>
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/TrainBooking.css">
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h1>Train booking</h1>
+            {% if notice is defined %}<h3 class="notice">{{ notice }}</h3>{% endif %}
+            {% block body %}{% endblock %}
+        </div>
+        {% block bodyLast %}{% endblock %}
+    </body>
+</html>
