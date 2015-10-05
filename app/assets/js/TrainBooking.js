@@ -20,17 +20,14 @@ define(["jquery", "SeatingPlan", "AjaxHandler"], function($, SeatingPlan, Handle
             this.getBookings()
         ).done(
             function(config, bookings) {
-                var bookingsArray = [],
-                    bookingsObject;
+                var bookingsArray = [];
 
                 if (bookings) {
-                    bookingsObject = JSON.parse(bookings);
-
-                    if (bookingsObject.bookings) {
-                        for (var i = 0; i < bookingsObject.bookings.length; i++) {
-                            if (bookingsObject.bookings[i].seatNumbers) {
-                                for (var j = 0; j < bookingsObject.bookings[i].seatNumbers.length; j++) {
-                                    bookingsArray.push(bookingsObject.bookings[i].seatNumbers[j]);
+                    if (bookings.bookings) {
+                        for (var i = 0; i < bookings.bookings.length; i++) {
+                            if (bookings.bookings[i].seatNumbers) {
+                                for (var j = 0; j < bookings.bookings[i].seatNumbers.length; j++) {
+                                    bookingsArray.push(bookings.bookings[i].seatNumbers[j]);
                                 }
                             }
                         }

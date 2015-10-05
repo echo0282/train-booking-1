@@ -5,11 +5,12 @@
 {% block body %}
     <p>Please select your seats for this booking.</p>
     <p>Please note you can only book between 1 and 5 seats.</p>
-    <p>To delete a certain booking, get /delete?id=:id</p>
-    <div class="row">
-        <div class="train-booking">
-            <h2>Front of train</h2>
-        </div>
+    <p>To delete a certain booking, get /delete?id=:booking_id</p>
+    <p>View booking id's with get /get</p>
+    <p>We can also disable seats - get /config</p>
+    <div>
+        <h2>Front of train</h2>
+        <div class="train-booking"></div>
         <button class="train-booking_submit" type="submit">Book tickets</button>
     </div>
 {% endblock %}

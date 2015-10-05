@@ -3,6 +3,7 @@
 namespace BBC\TrainBooking;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class TrainBooking
 {
@@ -24,8 +25,10 @@ class TrainBooking
     {
         $this->app['bookings.service']->get();
         $json = $this->app['bookings.service']->transform();
+        $response = new Response($json, 200);
+        $response->headers->set('Content-Type', 'application/json');
 
-        return new JsonResponse($json, 200);
+        return $response;
     }
 
     public function putAction($data)
