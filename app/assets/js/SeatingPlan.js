@@ -22,7 +22,6 @@ define(["jquery", "handlebars", "Seat"], function($, Handlebars, Seat) {
             "inactive": []
         };
         this.options = $.extend(this.options, options, {});
-        console.log(this.options);
 
         this.init();
         this.createSeatingMap();
